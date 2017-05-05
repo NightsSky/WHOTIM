@@ -4,10 +4,30 @@
              android:layout_height="match_parent"
              tools:context=".View.fragment.ContactFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"/>
+        android:layout_height="?attr/actionBarSize"
+        android:paddingTop="18dp"
+        android:background="@mipmap/toolbar_bg">
+        <TextView
+            android:id="@+id/titel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="联系人"
+            android:textSize="16sp"
+            android:textColor="@color/white"/>
+        <TextView
+            android:id="@+id/right_btn"
+            android:layout_gravity="right|center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="添加"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:layout_marginRight="5dp"
+            />
+    </android.support.v7.widget.Toolbar>
 
 </FrameLayout>
