@@ -3,6 +3,7 @@ package com.nightssky.whotim.View.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,10 +19,13 @@ import android.widget.TextView;
 import com.nightssky.whotim.Model.entity.test;
 import com.nightssky.whotim.R;
 import com.nightssky.whotim.View.activity.SettingActivity;
+import com.nightssky.whotim.View.adapter.TraditionHeaderAdapter;
 import com.nightssky.whotim.View.adapter.testAdapter;
 import com.nightssky.whotim.View.common.DividerItemDecoration;
 import com.nightssky.whotim.View.common.RecyclerViewScrollListener;
 import com.nightssky.whotim.utils.DisplayUtils;
+import com.sak.ultilviewlib.UltimateRefreshView;
+import com.sak.ultilviewlib.interfaces.OnHeaderRefreshListener;
 
 import java.util.ArrayList;
 
@@ -44,6 +48,8 @@ public class MessageFragment extends Fragment {
     TextView mTitel;
     @BindView(R.id.right_btn)
     ImageView mRightBtn;
+    @BindView(R.id.refreshView)
+    UltimateRefreshView mRefreshView;
 
     public MessageFragment() {
         // Required empty public constructor
@@ -63,7 +69,7 @@ public class MessageFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        DisplayUtils.setToolbarHeight(mToolbar,getActivity());
+        DisplayUtils.setToolbarHeight(mToolbar, getActivity());
 
         mRecycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecycleView.setHasFixedSize(true);
@@ -126,6 +132,18 @@ public class MessageFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), SettingActivity.class));
+            }
+        });
+        mRefreshView.setBaseHeaderAdapter(new TraditionHeaderAdapter(getContext()));
+        mRefreshView.setOnHeaderRefreshListener(new OnHeaderRefreshListener() {
+            @Override
+            public void onHeaderRefresh(UltimateRefreshView view) {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mRefreshView.onHeaderRefreshComplete();
+                    }
+                },2000);
             }
         });
     }

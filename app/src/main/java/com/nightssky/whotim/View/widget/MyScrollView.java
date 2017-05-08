@@ -114,7 +114,7 @@ public class MyScrollView extends ScrollView {
                     //使用平移动画
                     int translateY = childView.getBottom() - normal.bottom;
                     TranslateAnimation translateAnimation = new TranslateAnimation(0, 0, 0, -translateY);
-                    translateAnimation.setDuration(200);
+                    translateAnimation.setDuration(300);
 //                translateAnimation.setFillAfter(true);//停留在最终位置上
 
                     translateAnimation.setAnimationListener(new Animation.AnimationListener() {

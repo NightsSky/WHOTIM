@@ -1,66 +1,186 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
               android:orientation="vertical"
-             tools:context=".View.fragment.MeFragment">
+              tools:context=".View.fragment.MeFragment">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:paddingTop="18dp"
-        android:background="@mipmap/toolbar_bg">
+        android:background="@mipmap/toolbar_bg"
+        android:paddingTop="18dp">
+
         <TextView
             android:id="@+id/titel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="我"
-            android:textSize="16sp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:textSize="16sp"/>
+
         <ImageView
             android:id="@+id/right_btn"
-            android:layout_gravity="right|center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
             android:layout_marginRight="5dp"
             android:src="@mipmap/icon_setting"/>
     </android.support.v7.widget.Toolbar>
+
     <com.nightssky.whotim.View.widget.MyScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/background"
             android:orientation="vertical">
-            <LinearLayout
+
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:background="@color/white">
+
                 <com.nightssky.whotim.View.widget.CircleImageView
+                    android:id="@+id/avatar"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_margin="15dp"
                     android:src="@mipmap/avatar_1"/>
+
                 <TextView
+                    android:id="@+id/user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/avatar"
+                    android:text="皮亚诺"
                     android:textColor="@color/black"
-                    android:text="皮亚诺"/>
-            </LinearLayout>
+                    android:textSize="16sp"/>
+
+                <ImageView
+                    android:id="@+id/go_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@mipmap/arrow_right"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/go_right"
+                    android:src="@mipmap/icon_er"/>
+            </RelativeLayout>
+
+
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textSize="16sp"
-                android:padding="10dp"
-                android:text="@string/large_text"/>
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+                android:drawableLeft="@mipmap/icon_document"
+                android:drawableRight="@mipmap/arrow_right"
+                android:gravity="center_vertical"
+                android:drawablePadding="10dp"
+                android:padding="5dp"
+                android:text="在线文档"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="2dp"
+                android:background="@color/white"
+                android:drawableLeft="@mipmap/icon_email"
+                android:drawableRight="@mipmap/arrow_right"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                android:text="邮件"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="2dp"
+                android:background="@color/white"
+                android:drawableLeft="@mipmap/icon_collect"
+                android:drawableRight="@mipmap/arrow_right"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                android:text="收藏"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="2dp"
+                android:background="@color/white"
+                android:drawableLeft="@mipmap/icon_call"
+                android:drawableRight="@mipmap/arrow_right"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                android:text="电话"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="2dp"
+                android:background="@color/white"
+                android:drawableLeft="@mipmap/icon_file"
+                android:drawableRight="@mipmap/arrow_right"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                android:text="文件"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="30dp"
+                android:background="@color/white"
+                android:drawableLeft="@mipmap/icon_page"
+                android:drawableRight="@mipmap/arrow_right"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                android:text="QQ钱包"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="2dp"
+                android:background="@color/white"
+                android:drawableLeft="@mipmap/icon_qzone"
+                android:drawableRight="@mipmap/arrow_right"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                android:text="好友动态"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
         </LinearLayout>
 
     </com.nightssky.whotim.View.widget.MyScrollView>
 </LinearLayout>
-
