@@ -2,6 +2,8 @@ package com.nightssky.whotim.View.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -23,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
     FrameLayout mHomeContainer;
     @BindView(R.id.bottom_tab_layout)
     TabLayout mTabLayout;
-    private android.support.v4.app.FragmentManager fragmentManager;
-    private android.support.v4.app.FragmentTransaction transaction;
+    private FragmentManager fragmentManager;
+    private FragmentTransaction transaction;
     private MessageFragment fragment_message;
     private ContactFragment fragment_contact;
     private MeFragment fragment_me;

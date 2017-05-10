@@ -5,17 +5,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
+    android:background="@color/white"
+    android:paddingTop="10dp"
     android:orientation="vertical">
 
     <com.nightssky.whotim.View.widget.CircleImageView
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:layout_marginLeft="10dp"
         android:src="@mipmap/avatar_1"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintLeft_creator="1"
+
         app:layout_constraintTop_toTopOf="parent"
-          app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
         android:id="@+id/circleImageView"/>
 
     <TextView
@@ -30,29 +31,38 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/textView2"
         tools:layout_constraintBaseline_creator="1"
         tools:layout_constraintLeft_creator="1"
-        android:layout_marginLeft="20dp"/>
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="8dp"/>
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
         android:text="time"
         app:layout_constraintRight_toRightOf="parent"
         tools:layout_constraintTop_creator="1"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/message"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="消息"
         app:layout_constraintLeft_toRightOf="@+id/circleImageView"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/circleImageView"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintLeft_creator="1"
-        android:layout_marginLeft="20dp"
-        android:layout_marginBottom="-1dp"/>
-
+        android:layout_marginLeft="20dp"/>
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/divider_color"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/circleImageView"
+        android:layout_marginTop="10dp"/>
 </android.support.constraint.ConstraintLayout>

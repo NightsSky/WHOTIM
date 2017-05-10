@@ -7,37 +7,38 @@
     android:layout_height="match_parent"
     tools:context="com.nightssky.whotim.View.activity.MainActivity">
 
+
+
     <android.support.design.widget.TabLayout
         android:id="@+id/bottom_tab_layout"
         android:layout_width="0dp"
         android:layout_height="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:tabIndicatorHeight="0dp"
         app:tabSelectedTextColor="@android:color/black"
-        app:tabTextColor="@android:color/darker_gray"
-        app:layout_constraintHorizontal_bias="0.0"
-        android:layout_marginBottom="0dp">
+        app:tabTextColor="@android:color/darker_gray">
 
     </android.support.design.widget.TabLayout>
-
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/divider_color"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_tab_layout"/>
     <FrameLayout
         android:id="@+id/home_container"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_weight="1"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_tab_layout"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+       >
     </FrameLayout>
 
 </android.support.constraint.ConstraintLayout>
