@@ -6,6 +6,7 @@
 
 
     <string name="behavior">com.nightssky.whotim.View.widget.ToolBarBehavior</string>
+    <string name="myBehavior">com.nightssky.whotim.View.widget.behavior.myBehavior</string>
     <string name="toolbehavior">com.nightssky.whotim.View.widget.behavior.ByeBurgerTitleBehavior</string>
 
 

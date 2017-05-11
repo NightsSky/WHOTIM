@@ -4,6 +4,9 @@ import android.animation.ValueAnimator;
 import android.support.design.widget.CoordinatorLayout;
 import android.view.View;
 
+import com.nightssky.whotim.View.common.MyAppliction;
+import com.nightssky.whotim.utils.DisplayUtils;
+
 /**
  * A Animate Helper to control view's visibility
  * Created by wing on 11/5/16.
@@ -39,8 +42,8 @@ public class TranslateAnimateHelper implements AnimateHelper {
   }
 
   private void hideTitle() {
-    ValueAnimator va = ValueAnimator.ofFloat(mTarget.getY(), -mTarget.getHeight());
-    va.setDuration(300);
+    ValueAnimator va = ValueAnimator.ofFloat(mTarget.getY(), -mTarget.getHeight()+ DisplayUtils.getStatusBarHight(MyAppliction.getApplication()));
+    va.setDuration(500);
     va.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
       @Override public void onAnimationUpdate(ValueAnimator valueAnimator) {
         mTarget.setY((Float) valueAnimator.getAnimatedValue());
@@ -52,8 +55,9 @@ public class TranslateAnimateHelper implements AnimateHelper {
 
   private void showTitle() {
 
+//    ValueAnimator va = ValueAnimator.ofFloat(mTarget.getY(), 0);
     ValueAnimator va = ValueAnimator.ofFloat(mTarget.getY(), 0);
-    va.setDuration(300);
+    va.setDuration(500);
     va.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
       @Override public void onAnimationUpdate(ValueAnimator valueAnimator) {
         mTarget.setY((Float) valueAnimator.getAnimatedValue());

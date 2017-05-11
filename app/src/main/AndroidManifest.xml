@@ -3,6 +3,7 @@
           package="com.nightssky.whotim">
 
     <application
+        android:name=".View.common.MyAppliction"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
