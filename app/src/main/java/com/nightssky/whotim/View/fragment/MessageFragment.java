@@ -3,10 +3,10 @@ package com.nightssky.whotim.View.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +18,8 @@ import com.nightssky.whotim.Model.entity.test;
 import com.nightssky.whotim.R;
 import com.nightssky.whotim.View.activity.SettingActivity;
 import com.nightssky.whotim.View.adapter.testAdapter;
+import com.nightssky.whotim.View.widget.pullRecyclerView.PullBaseView;
+import com.nightssky.whotim.View.widget.pullRecyclerView.PullRecyclerView;
 import com.nightssky.whotim.utils.DisplayUtils;
 
 import java.util.ArrayList;
@@ -25,28 +27,23 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import in.srain.cube.views.ptr.PtrClassicFrameLayout;
-import in.srain.cube.views.ptr.PtrDefaultHandler;
-import in.srain.cube.views.ptr.PtrFrameLayout;
-import in.srain.cube.views.ptr.PtrHandler;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MessageFragment extends Fragment {
+public class MessageFragment extends Fragment implements PullBaseView.OnRefreshListener {
 
 
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
-    @BindView(R.id.recycleView)
-    RecyclerView mRecycleView;
+
     Unbinder unbinder;
     @BindView(R.id.titel)
     TextView mTitel;
     @BindView(R.id.right_btn)
     ImageView mRightBtn;
-    @BindView(R.id.refreshLayout)
-    PtrClassicFrameLayout mRefreshLayout;
+    @BindView(R.id.recycleView)
+    PullRecyclerView mRecycleView;
 
 
     public MessageFragment() {
@@ -70,7 +67,7 @@ public class MessageFragment extends Fragment {
         DisplayUtils.setToolbarHeight(mToolbar, getActivity());
 
         mRecycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mRecycleView.setHasFixedSize(true);
+        mRecycleView.setOnRefreshListener(this);
 //        mRecycleView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
         testAdapter adapter = new testAdapter(R.layout.item_message_fragment);
         mRecycleView.setAdapter(adapter);
@@ -151,23 +148,7 @@ public class MessageFragment extends Fragment {
             }
         });
 
-        mRefreshLayout.setLastUpdateTimeRelateObject(this);
-        mRefreshLayout.setPtrHandler(new PtrHandler() {
-            @Override
-            public boolean checkCanDoRefresh(PtrFrameLayout frame, View content, View header) {
-                return PtrDefaultHandler.checkContentCanBePulledDown(frame, mRecycleView, header);
-            }
 
-            @Override
-            public void onRefreshBegin(PtrFrameLayout frame) {
-                mRefreshLayout.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        mRefreshLayout.refreshComplete();
-                    }
-                }, 500);
-            }
-        });
     }
 
     @Override
@@ -176,4 +157,19 @@ public class MessageFragment extends Fragment {
         unbinder.unbind();
     }
 
+    @Override
+    public void onHeaderRefresh(PullBaseView view) {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                mRecycleView.onHeaderRefreshComplete();
+            }
+        }, 1500);
+    }
+
+    @Override
+    public void onFooterRefresh(PullBaseView view) {
+
+    }
 }

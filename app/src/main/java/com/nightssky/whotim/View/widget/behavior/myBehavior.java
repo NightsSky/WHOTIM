@@ -28,8 +28,8 @@ public class myBehavior extends CoordinatorLayout.Behavior<View> {
     public boolean onDependentViewChanged(CoordinatorLayout parent, View child, View dependency) {
 //        float scaleY = Math.abs(dependency.getY());
         float scaleY =dependency.getHeight()-dependency.getY();
-//        child.setTranslationY(-scaleY);
-        child.layout(0, (int)-scaleY,child.getMeasuredWidth(),child.getMeasuredHeight()+(int)scaleY);
+        child.setTranslationY(-scaleY);
+//        child.layout(0, (int)-scaleY,child.getMeasuredWidth(),child.getMeasuredHeight()+(int)scaleY);
         Log.d("msg", "onDependentViewChanged");
         return true;
     }

@@ -1,6 +1,7 @@
 package com.nightssky.whotim.View.adapter;
 
 import com.nightssky.whotim.Model.entity.test;
+import com.nightssky.whotim.R;
 import com.nightssky.whotim.View.common.BaseRecycleViewAdapter;
 
 /**
@@ -14,6 +15,6 @@ public class testAdapter extends BaseRecycleViewAdapter<test,BaseRecycleViewAdap
 
     @Override
     protected void bindTheData(BaseRecycleViewAdapter.BaseViewHolder holder, test data, int position) {
-
+        holder.setText(R.id.time, "" + position);
     }
 }
