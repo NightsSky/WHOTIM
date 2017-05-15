@@ -2,10 +2,10 @@ package com.nightssky.whotim.utils;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.widget.FrameLayout;
 
 /**
  * 手机像素转换适配工具
@@ -125,7 +125,7 @@ public class DisplayUtils {
 	}
 
 	public static void setToolbarHeight(Toolbar toolbar,Context context) {
-		CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) toolbar.getLayoutParams();
+		FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) toolbar.getLayoutParams();
 		layoutParams.height += DisplayUtils.getStatusBarHight(context) / 2;
 		toolbar.setLayoutParams(layoutParams);
 	}
